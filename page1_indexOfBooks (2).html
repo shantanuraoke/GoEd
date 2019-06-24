@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <style>/* General Reset */
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr{
+                margin:0;
+                padding:0;
+                border:0;
+                outline:0;
+                font-size:100%;
+                vertical-align:baseline;
+                background:none;
+            }
+            .add{
+                border-radius: 2px;
+            }
+            
+            ol, ul {
+                list-style-type:none;
+            }
+            
+            h1, h2, h3, h4, h5, h6, li {
+                line-height:100%;
+            }
+            
+            blockquote, q {
+                quotes:none;
+            }
+            
+            q:before, q:after {
+                content:"";
+            }
+            
+            table {
+                border-collapse:collapse;
+                border-spacing:0;
+            }
+            
+            input, textarea, select {
+                font-size:12px; 
+                font-family: Nunito;
+                vertical-align:middle;
+                padding:0;
+                margin:0;
+            }
+            
+            textarea {
+                overflow:auto;
+                resize:none;
+            }
+            
+            body {
+                margin:0px;
+                padding:0px;
+                font-size:13px;
+                line-height:21px;
+                color:#A8C3CD;
+                background-color:#232e34;
+                font-family: 'Nunito';
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-weight:normal;
+            }
+            
+            h1 {
+                font-size:33px;
+                color:rgb(193, 224, 233);
+                margin-bottom:20px;
+            }
+            
+            h2 {
+                font-size:25px;
+                color:#8DC6D5;
+                margin-bottom:20px;
+            }
+            
+            h3 {
+                font-size:18px;
+                color:#8DC6D5;
+                margin-bottom:20px;
+            }
+            
+            h4 {
+                font-size:16px;
+                color:#8DC6D5;
+                margin-bottom:20px;
+            }
+            
+            h5 {
+                font-size:14px;
+                color:#8DC6D5;
+                margin-bottom:20px;
+            }
+            
+            h6 {
+                font-size:12px;
+                color:#8DC6D5;
+                margin-bottom:20px;
+            }
+            
+            /*  links
+                ******************************/
+                a {color: #D0DAE0;text-decoration: underline;}
+                a:hover {color: #D0DAE0;text-decoration: none;}
+            
+                /*  superscript and subscript
+                ******************************/
+                sup, sub {vertical-align: baseline;position: relative;top: -0.4em;}
+                sub { top: 0.4em; }
+                
+                /*  lists
+                ******************************/
+                ul, ol {padding:0;margin:0;}
+                ul li {list-style-type:disc;}
+                ol li {list-style-type:decimal;}
+                ul li,
+                ol li {font-size: 12px; line-height: 16px;margin: 0 0 10px 15px;}
+            
+                /*  tables
+                ******************************/
+                table,th,td {border:1px solid #777777;}
+                th {padding:3px; font-weight:bold;color:#92b4be;}
+                tr {margin:0 0 5px 0;padding:3px;}
+                td {padding:5px;margin:0 1px;}
+
+                
+                /*  horizontal lines
+                ******************************/
+                hr {border-bottom: 1px solid #ceced6;margin:5px 0;padding:0;height:2px;width:100%; margin-bottom:10px;}
+            
+            .clear {
+                clear:both;
+            }
+            
+            .left {
+                float:left;
+            }
+            
+            .right {
+                float:right;
+            }
+            
+            .copyright {
+                border: 0px;
+                height: 1px;
+                width: 1px;
+            }
+            
+            #wrapper {
+                width:1000px;
+                margin:0 auto;
+                padding:20px 0 10px 0;
+            }
+            
+            /*----start header----*/
+            #header {
+                padding:0px 0px 5px;
+            }
+            
+            #header .top_banner{
+                background:url(../images/header.jpg) no-repeat left top;
+                height:167px;
+                padding:60px 95px 0 560px;
+                -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;
+            }
+            
+            #header h1{
+                font-size:32px;
+                color:#90b0c5;
+                margin:0px;
+                font-weight:bold;
+                padding:0px 0px 10px;
+            }
+            
+            #header h1 a {
+                color:#90b0c5;
+                text-decoration: none;
+            }
+            
+            #header h1 a:hover {
+                text-decoration: none;
+            }
+            
+            #header p{
+                font-size:18px;
+                margin-left:1px;
+                color:#495b67;
+            }
+            
+            .navigation{
+                margin:0px;
+                padding:20px 15px;
+                margin-bottom:12px;
+                border:#427586 solid 1px;
+            }
+            
+            .navigation ul{
+                margin:0px;
+                padding:0px;
+            }
+            
+            .navigation ul li{
+                margin:0px;
+                padding:0px 35px;
+                display:inline;
+                font-size:15px;
+                list-style-type:none;
+                border-right:#868B8F dotted 2px; 
+            }
+            
+            .navigation ul li a{
+                color:#c0d2de;
+                text-decoration:none;
+            }
+            
+            .navigation ul li a:hover{
+                text-decoration:underline;
+            }
+            
+            .navigation ul li:last-child {
+                border-right:none;
+            }
+            /*----end header----*/
+            
+            
+            /*----start page content----*/
+            #page_content{
+                width:72%;
+                -webkit-border-radius: 10px;-moz-border-radius: 5px;border-radius: 5px;
+                padding: 20px;
+                background:#2b424a;
+            }
+            
+            #page_content .right_section{
+                width:720px;
+                float:left;
+                padding:15px;
+            }
+            
+            #page_content .right_section .top_content{
+                padding:15px 0 0px 0;
+            }
+            
+            #page_content .right_section .top_content .column_one{
+                width:340px;
+                float:left;
+                margin-bottom:20px;
+            }
+            
+            #page_content .right_section .top_content .column_two{
+                width:340px;
+                float:right;
+                margin-bottom:20px;
+            }
+            
+            a.btn{
+                color:#8197a4;
+                font-size:12px;
+                text-decoration:none;
+                padding:7px 15px 7px 15px;
+                font-weight:bold;
+                display:inline-block;
+                border:#687f87 solid 1px;
+                -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;
+            }
+            
+            a.btn:hover{
+                color:#A3C1D2;
+            }
+            
+            .common_content{
+                padding:0 0 20px 0;
+            }
+            
+            .border_left{
+                border-left:#6e7678 dotted 1px;
+                padding-left:20px;
+            }
+            .border_none{
+                border:none!important;
+                margin:0px!important;
+            }
+            
+            .right_side_bar{
+                padding: 0 0 0 0px;
+                width:220px;
+                float:right;
+            }
+            
+            .right_side_bar h1{
+                font-size:10px;
+                padding:10px 0 12px 35px;
+                margin-bottom:5px;
+                color:#b6d7e4;
+                background:url(../images/arrow.png) no-repeat 10px center;
+            }
+            
+            .right_side_bar .col_1{
+                padding:0px 0 20px 0;
+            }
+            
+            .right_side_bar .col_1 .box{
+                padding:0px 12px 5px;
+            }
+            
+            .right_side_bar .col_1 .box ul{
+                margin:0px;
+                padding:0px;
+            }
+            
+            .right_side_bar .col_1 .box ul li{
+                margin:0px 0px 8px;
+                padding:0px 0px 0px 20px;
+                font-size:12px;
+                list-style-type:none;
+                background:url(../images/li.png) no-repeat left center;
+            }
+            
+            .right_side_bar .col_1 .box ul li a{
+                color:#95C7D2;
+                text-decoration:underline;
+            }
+            
+            .right_side_bar .col_1 .box ul li a:hover{
+                color:#95C7D2;
+                text-decoration:none;
+            }
+            .table1{
+                td {border:1px solid #777777;}
+                th {padding:3px; font-weight:bold;color:#92b4be;}
+                tr {margin:0 0 5px 0;padding:3px;}
+                td {padding:5px;margin:0 1px;}
+            }
+
+            
+            /*----end page content----*/
+            
+            
+            /*----start footer content----*/
+            #footer{
+                clear:both;
+                margin-top:18px;
+                padding:12px 0 12px 0;
+                height:20px;
+                text-align:center;
+                font-family:Verdana, Geneva, sans-serif;
+                font-size:12px;
+                line-height:20px;
+                color:#00222e;
+                background:#95b7c1;
+            }
+            
+            #footer a{
+                color:#00222e;
+                text-decoration:none;
+            }
+            
+            #footer a:hover{
+                color:#00222e;
+                text-decoration:underline;
+            }
+            
+            /*----end footer content----*/
+        </style>
+<!--<meta charset="UTF-8">-->
+<title>GoEd Librarian Portal</title>
+<!--<meta name="description" content="A description of your website">
+<meta name="keywords" content="keyword1, keyword2, keyword3">-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body><!--{font-family: 'Nunito';font-size: 22px;}-->
+<script>function addRow() {
+          
+    var BookName = document.getElementById("BookName");
+    var BookID = document.getElementById("BookID");
+    var Location = document.getElementById("Location");
+    var Status = document.getElementById("Status");
+    var table = document.getElementById("myTableData");
+ 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+    row.insertCell(0).innerHTML= BookName.value;
+    row.insertCell(1).innerHTML= BookID.value;
+    row.insertCell(2).innerHTML= Location.value;
+    row.insertCell(3).innerHTML= Status.value;
+    row.insertCell(4).innerHTML= '<input type="button" value = "Delete" text-align="centre" onClick="Javacsript:deleteRow1(this)">';
+ 
+}
+ 
+function deleteRow1(obj) {
+      
+    var index = obj.parentNode.parentNode.rowIndex;
+    var table = document.getElementById("myTableData");
+    table.deleteRow(index);
+    
+}
+function addTable() {
+      
+    var myTableDiv = document.getElementById("myDynamicTable");
+      
+    var table = document.createElement('TABLE');
+    table.border='1';
+    
+    var tableBody = document.createElement('TBODY');
+    table.appendChild(tableBody);
+      
+    for (var i=0; i<3; i++){
+       var tr = document.createElement('TR');
+       tableBody.appendChild(tr);
+       
+       for (var j=0; j<4; j++){
+           var td = document.createElement('TD');
+           td.width='75';
+           td.appendChild(document.createTextNode("Cell " + i + "," + j));
+           tr.appendChild(td);
+       }
+    }
+    myTableDiv.appendChild(table);
+    
+}
+function deleteRow(row){
+      var d = row.parentNode.parentNode.rowIndex;
+      document.getElementById('dsTable').deleteRow(d);
+   }
+ 
+function load() {
+    
+    console.log("Page load finished");
+ 
+}
+</script>
+        
+
+<div id="wrapper"> 
+  
+  <div id="header"> 
+    
+    <div class="top_banner">
+      <h1>GoEd Librarian Portal</h1>
+      <p>Fast, Seamless, and Secure</p>
+    </div>
+
+  </div>
+  <div class="right_side_bar">
+        <div id="myform">
+            <table>
+                ADD BOOK
+                    <tr>
+                        <td>Book Name</td>
+                        <td><input type="text" id="BookName"></td>
+                    </tr>
+                    <tr>
+                        <td>Book ID</td>
+                        <td><input type="text" id="BookID"></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><input type="text" id="Location"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td><input type="text" id="Status"></td>
+                    </tr>
+                    <table><tr><input type="button" id="add" value="Add Book" onclick="Javascript:addRow()"></tr></table>
+                            
+                </table>
+            </div>
+        </div>
+  <div id="page_content">
+            <div id="mydata">
+                    <b>Current data in the system ...</b>
+                    <table style = "width:100%" id="myTableData" border="1" cellpadding="2"  >
+                        <tr>
+                            
+                            <td><b>Book Name</b></td>
+                            <td><b>Book ID</b></td>
+                            <td><b>Location</b></td>
+                            <td><b>Status</b></td>
+                            <td><b>Delete Book</b></td>
+                            
+                        </tr>
+                        
+                           
+                          
+                        
+                    </table>
+                    <table id = 'dsTable'class="table1" style="width:100%" border="1" cellpadding="2" >
+                        <col width="173.5">
+                        <col width="125.5">
+                        <col width="134.5">
+                        <col width="106">
+                        <tr>
+                          <th align="left">Harry Potter</th>
+                          <th align="left">1234</th> 
+                          <th align="left">room1</th>
+                          <th align="left">shelf</th>
+                          <th align="left"><input type="button" id="Delete" value="Delete" style="float:none!important;display:inline;" onclick="Javascript:deleteRow(this)"></th>
+                        </tr>
+                        <tr>
+                            <th align="left">Ulysses</th>
+                            <th align="left">1235</th> 
+                            <th align="left">room1</th>
+                            <th align="left">shelf</th>
+                            <th align="left"><input type="button" id="Delete" value="Delete" onclick="Javascript:deleteRow(this)"></th>
+                          </tr>
+                          <tr>
+                            <th align="left">Pride and Prejudice</th>
+                            <th align="left">1236</th> 
+                            <th align="left">room2</th>
+                            <th align="left">issued</th>
+                            <th align="left"><input type="button" id="Delete" value="Delete" onclick="Javascript:deleteRow(this)"></th>
+                          </tr>
+                          <tr>
+                            <th align="left">Serendipity</th>
+                            <th align="left">1237</th> 
+                            <th align="left">room3</th>
+                            <th align="left">issued</th>
+                            <th align="left"><input type="button" id="Delete" value="Delete" onclick="Javascript:deleteRow(this)"></th>
+                          </tr>
+                          <tr>
+                            <th align="left">Merlin</th>
+                            <th align="left">1238</th> 
+                            <th align="left">room1</th>
+                            <th align="left">shelf</th>
+                            <th align="left"><input type="button"  id="Delete" value="Delete" onclick="Javascript:deleteRow(this)"></th>
+                          </tr>
+                          <tr>
+                            <th align="left">Sense and Sensibility</th>
+                            <th align="left">1239</th> 
+                            <th align="left">room2</th>
+                            <th align="left">shelf</th>
+                            <th align="left"><input type="button" id="Delete" value="Delete" onclick="Javascript:deleteRow(this)"></th>
+                          </tr>
+                        
+                      </table>
+                </div>
+    </div>
+
+
+                    
+            
+            
+    
+        
+    <div class="clear"></div>
+    
+    <!--start footer from here-->
+    <div id="footer">SMART LIBRARY &copy;<a href="" target="_blank"></a><br>
+    
+	<!--DO NOT remove footer link-->
+    <!--Template designed by--><a href=""><img src="images/footer.gif" class="copyright" alt=""></a></div>
+	
+	<!--/. end footer from here-->
+  </div>
+  
+</div>
+
+</body></html>
