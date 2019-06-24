@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+<!--<meta charset="UTF-8">-->
+<title>GoEd Librarian Portal</title>
+<!--<meta name="description" content="A description of your website">
+<meta name="keywords" content="keyword1, keyword2, keyword3">-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body><!--{font-family: 'Nunito';font-size: 22px;}-->
+
+        
+
+<div id="wrapper"> 
+  
+  <div id="header"> 
+    
+    <div class="top_banner">
+      <h1>GoEd Librarian Portal</h1>
+      <p>Fast, Seamless, and Secure</p>
+    </div>
+
+  </div>
+  <div class="right_side_bar">
+        <div id="myform">
+            <table>
+                ADD BOOK
+                    <tr>
+                        <td>Book Name</td>
+                        <td><input type="text" id="BookName"></td>
+                    </tr>
+                    <tr>
+                        <td>Book ID</td>
+                        <td><input type="text" id="BookID"></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><input type="text" id="Location"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td><input type="text" id="Status"></td>
+                    </tr>
+                    <table><tr><input type="button" id="add" value="Add Book" onclick="Javascript:addRow()"></tr></table>
+                            
+                </table>
+            </div>
+        </div>
+  <div id="page_content">
+            <div id="mydata">
+                    <b>Current data in the system ...</b>
+                    <table style = "width:100%" id="myTableData"  border="1" cellpadding="2">
+                        <tr>
+                            
+                            <td><b>Book Name</b></td>
+                            <td><b>Book ID</b></td>
+                            <td><b>Location</b></td>
+                            <td><b>Status</b></td>
+                            <td><b>Delete Book</b></td>
+                            
+                        </tr>
+                        
+                    </table>
+                </div>
+    </div>
+
+
+                    
+            
+            
+    
+        
+    <div class="clear"></div>
+    
+    <!--start footer from here-->
+    <div id="footer">Copyright &copy;<a href="http://www.htmltemplates.net" target="_blank"></a><br>
+    
+	<!--DO NOT remove footer link-->
+    <!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="htmltemplates.net"></a></div>
+	
+	<!--/. end footer from here-->
+  </div>
+  
+</div>
+
+</body></html>
